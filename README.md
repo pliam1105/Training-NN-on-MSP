@@ -9,6 +9,7 @@ I examined the reduced-MSP model from the above paper and gathered data from Run
 
 * I also trained a model that predicts the derivatives of the values at a certain point in the $S0, S1, S2$ space (the RHS of the differential equation of the system). Its structure is the same as the previous model, but the output contains the derivatives instead of the values of the map. The training data are also based on the trajectories as before. An overview of the model:<br><br>
 <table><tr><td align="center"><img src="On the parameters paper/nn_dif_diagram.png" width="50%"></td></tr><table><br>
+
 * Then I plotted the trajectories of the two different models, along with the ones with the Runge-Kutta method, with 6 sets of randomly selected parameters of the test data, in order to evaluate their accuracy. Dotted line is the *derivative* Neural Network trajectory, solid line the Runge-Kutta, and dashed line the *time-1 map* Neural Network. Also, green line is $S0$, blue line $S1$, and red line $S2$.<br>
 <table>
     <tr>

@@ -4,12 +4,12 @@ I examined the reduced-MSP model from the above paper and gathered data from Run
 ## Experiment: Varying the parameters of the system
 * First, I imported the necessary libraries, determined the parameters of the system based on the ones the paper uses: ($ k_{f, 1} = 0.71, k_{f, 2} = 0.97, k_{r, 1} = 19, k_{r, 2} = 7000, k_{cat, 1} = 6700, k_{cat, 2} = 10000 $) made the function for the derivatives of the system, the functions for the *Runge-Kutta* and *Euler* integration maps and the one that computes the trajectory using these, including the parameters of the system as an input to the functions.
 * Next, I took a sample of $2000$ random sets of values for the parameters, with deviation of $-75\%$ to $-100\%$ from the ones given by the paper (this is where the steady state starts to change), and stored the trajectories (from Runge-Kutta) using these starting values. From these trajectories, I then made the training and test data, taking the points of $80\%$ of the trajectories as training and $20\%$ as testing. $20\%$ of the testing points are used as validation dataset for the training.
-<br><img align="right" src="On the parameters paper/nn_map_diagram.png" width="40%"><br>
+<br><img align="right" src="/On the parameters paper/nn_map_diagram.png" width="40%"><br>
 * Then, I trained a Neural Network to learn the time-1 map of the system, and consists of the input and output layers (input is a point in the $S0, S1, S2$ 3D space and the parameters of the system and output is the point after time $dt$) and $2$ hidden fully connected layers with $15$ nodes each (after normalizing the input values to the same magnitude). An overview of the model is shown to the right:
 <br>
 <br>
 <br>
-<br><img align="right" src="On the parameters paper/nn_dif_diagram.png" width="40%"><br><br>
+<br><img align="right" src="/On the parameters paper/nn_dif_diagram.png" width="40%"><br><br>
 * I also trained a model that predicts the derivatives of the values at a certain point in the $S0, S1, S2$ space (the RHS of the differential equation of the system). Its structure is the same as the previous model, but the output contains the derivatives instead of the values of the map. The training data are also based on the trajectories as before. An overview of the model:
 <br>
 <br>
